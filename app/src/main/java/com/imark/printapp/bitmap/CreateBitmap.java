@@ -1,13 +1,9 @@
-package com.example.printapp;
+package com.imark.printapp.bitmap;
 
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Paint;
-import android.text.TextUtils;
 
-import com.example.printapp.constants.PrintSize;
-
-import java.io.IOException;
+import com.imark.printapp.constants.PrintSize;
 
 public class CreateBitmap {
     public Bitmap getBitmap() {

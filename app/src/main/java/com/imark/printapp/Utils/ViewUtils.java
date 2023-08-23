@@ -1,5 +1,7 @@
-package com.example.printapp.Utils;
+package com.imark.printapp.Utils;
 
+import android.app.AlertDialog;
+import android.content.Context;
 import android.os.SystemClock;
 
 public class ViewUtils {
@@ -15,5 +17,14 @@ public class ViewUtils {
         }
         lastClickTime = time;
         return false;
+    }
+
+    public static void alertDialog(Context context, String title, String message) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setMessage(message)
+                .setTitle(title)
+                .setCancelable(true)
+                .create()
+                .show();
     }
 }

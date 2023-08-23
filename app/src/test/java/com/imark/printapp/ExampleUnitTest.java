@@ -1,4 +1,4 @@
-package com.example.printapp;
+package com.imark.printapp;
 
 import org.junit.Test;
 

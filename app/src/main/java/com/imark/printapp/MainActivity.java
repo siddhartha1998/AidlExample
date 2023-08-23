@@ -1,25 +1,20 @@
-package com.example.printapp;
+package com.imark.printapp;
 
-import android.content.ComponentName;
-import android.content.Intent;
-import android.content.ServiceConnection;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.os.IBinder;
 import android.os.RemoteException;
 import android.util.Base64;
-import android.util.Log;
 import android.widget.Button;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.printapp.Utils.ViewUtils;
-import com.example.printapp.service.PrintConnectionService;
+import com.example.printapp.R;
+import com.imark.printapp.Utils.ViewUtils;
+import com.imark.printapp.bitmap.CreateBitmap;
+import com.imark.printapp.service.PrintConnectionService;
 
 import java.io.ByteArrayOutputStream;
-
-import acquire.client_connection.IFewaPayService;
 
 public class MainActivity extends AppCompatActivity {
     private Button bPrint;
@@ -44,7 +39,12 @@ public class MainActivity extends AppCompatActivity {
         Bitmap bitmap = createBitmap.getBitmap();
         String base64Image = convertBitmapToBase64(bitmap);
         try {
-            PrintConnectionService.myInstance().print(base64Image);
+            PrintConnectionService service = PrintConnectionService.myInstance();
+            if (service == null || !PrintConnectionService.isServiceConnected) {
+                ViewUtils.alertDialog(this, "PrintApp", "Service Bind Failed, Please assure Server Service is Run or Not!");
+            } else {
+                PrintConnectionService.myInstance().print(base64Image);
+            }
         } catch (RemoteException e) {
             throw new RuntimeException(e);
         }

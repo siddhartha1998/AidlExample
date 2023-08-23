@@ -1,4 +1,4 @@
-package com.example.printapp.constants;
+package com.imark.printapp.constants;
 
 public class PrintSize {
     public static int SMALL = 18;

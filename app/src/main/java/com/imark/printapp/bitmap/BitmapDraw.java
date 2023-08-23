@@ -1,5 +1,5 @@
 
-package com.example.printapp;
+package com.imark.printapp.bitmap;
 
 
 import android.graphics.Bitmap;
