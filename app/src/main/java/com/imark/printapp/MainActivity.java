@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             PrintConnectionService service = PrintConnectionService.myInstance();
             if (service == null || !PrintConnectionService.isServiceConnected) {
-                ViewUtils.alertDialog(this, "PrintApp", "Service Bind Failed, Please assure Server Service is Run or Not!");
+                ViewUtils.alertDialog(this, "PrintApp", "Service Bind Failed, Please assure Server Service is Running or Not!");
             } else {
                 PrintConnectionService.myInstance().print(base64Image);
             }
